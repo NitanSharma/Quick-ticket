@@ -1,0 +1,16 @@
+npm warn tar TAR_ENTRY_ERROR ENOSPC: no space left on device, write
+npm warn tar TAR_ENTRY_ERROR ENOSPC: no space left on device, write
+npm warn tar TAR_ENTRY_ERROR ENOSPC: no space left on device, write
+npm warn tar TAR_ENTRY_ERROR ENOSPC: no space left on device, write
+npm warn tar TAR_ENTRY_ERROR ENOSPC: no space left on device, write
+npm warn tar TAR_ENTRY_ERROR ENOSPC: no space left on device, open 'C:\Users\ASUS\OneDrive\Desktop\quick-ticket\node_modules\@opentelemetry\sdk-trace-base\build\esnext\platform\browser\RandomIdGenerator.js.map'
+npm warn tar TAR_ENTRY_ERROR ENOSPC: no space left on device, write
+npm warn tar TAR_ENTRY_ERROR EBADF: bad file descriptor, write
+npm warn tar TAR_ENTRY_ERROR EBADF: bad file descriptor, write
+npm warn tar TAR_ENTRY_ERROR EBADF: bad file descriptor, write
+npm warn tar TAR_ENTRY_ERROR ENOSPC: no space left on device, write
+npm warn tar TAR_ENTRY_ERROR ENOSPC: no space left on device, write
+npm warn tar TAR_ENTRY_ERROR EBADF: bad file descriptor, write
+npm warn tar TAR_ENTRY_ERROR ENOSPC: no space left on device, open 'C:\Users\ASUS\OneDrive\Desktop\quick-ticket\node_modules\@opentelemetry\sdk-trace-base\build\esnext\platform\node\RandomIdGenerator.js.map'
+npm warn tar TAR_ENTRY_ERROR ENOSPC: no space left on device, write
+npm error A complete log of this run can be found in: C:\Users\ASUS\AppData\Local\npm-cache\_logs\2025-08-27T08_13_40_140Z-debug-0.log
