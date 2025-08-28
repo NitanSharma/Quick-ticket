@@ -6,7 +6,9 @@ import { revalidatePath } from 'next/cache';
 import { logEvent } from '@/utils/sentry';
 
 
-export async function createTicket(prevState :{success : boolean; message : string} ,formData : FormData) : Promise<{success: boolean; message :string}>{
+export async function createTicket(
+    prevState :{success : boolean; message : string} ,
+    formData : FormData) : Promise<{success: boolean; message :string}>{
 
     try {
         // throw new Error('Simulated Prisma error for testing')
@@ -61,4 +63,23 @@ export async function createTicket(prevState :{success : boolean; message : stri
     }
 
     
+}
+
+export async function getTickets(){
+    try {
+        const tickets = await prisma.ticket.findMany({
+            orderBy : {createdAt : 'desc'}
+        })
+
+        logEvent('Fetched ticket list' , 'ticket' , {count : tickets.length} , 'info')
+
+        return tickets;
+    } catch (error) {
+        logEvent(
+            'Error fetching tickets',
+            'ticket',
+            {}, 'error', error
+        );
+        return [];
+    }
 }
