@@ -6,10 +6,13 @@ import { createTicket } from '@/actions/ticket.actions';
 import { toast } from 'sonner';
 
 const NewTicketForm = () => {
-  const [state, formAction] = useActionState(createTicket, {
+
+  const initialState = {
     success: false,
     message: '',
-  });
+  };
+
+  const [state, formAction] = useActionState(createTicket, initialState);
 
   const router = useRouter();
 
