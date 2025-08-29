@@ -1,38 +1,33 @@
-'use client'
+'use client';
 
-import { useActionState , useEffect } from "react";
-import { createTicket } from "@/actions/ticket.actions";
-import { useRouter } from "next/navigation";
-import { toast } from "sonner";
-
+import { useActionState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { createTicket } from '@/actions/ticket.actions';
+import { toast } from 'sonner';
 
 const NewTicketForm = () => {
+  const [state, formAction] = useActionState(createTicket, {
+    success: false,
+    message: '',
+  });
 
-        const [state, formAction] = useActionState(createTicket ,{
-            success : false,
-            messgae : ''
-        })
+  const router = useRouter();
 
-        const router = useRouter();
+  useEffect(() => {
+    if (state.success) {
+      toast.success('Ticket submitted successfully!');
+      router.push('/tickets');
+    }
+  }, [state.success, router]);
 
-        useEffect(() => {
-          toast.success('Ticket submitted successfully!');
-        if(state.success){
-          router.push('/tickets');
-        }
-        }, [state.success , router]);
-        
-
-
-    return ( <div className='w-full max-w-md bg-white shadow-md rounded-lg p-8 border border-gray-200'>
+  return (
+    <div className='w-full max-w-md bg-white shadow-md rounded-lg p-8 border border-gray-200'>
       <h1 className='text-3xl font-bold mb-6 text-center text-blue-600'>
         Submit a Support Ticket
       </h1>
-      {
-        state.message && !state.success && (
-            <p className="text-red-500 mb-4 text-center">{state.message}</p>
-        )
-      }
+      {state.message && !state.success && (
+        <p className='text-red-500 mb-4 text-center'>{state.message}</p>
+      )}
       <form action={formAction} className='space-y-4 text-gray-700'>
         <input
           className='w-full border border-gray-200 p-3 rounded focus:outline-none focus:ring-2 focus:ring-blue-400'
@@ -62,7 +57,8 @@ const NewTicketForm = () => {
           Submit
         </button>
       </form>
-    </div> );
-}
- 
+    </div>
+  );
+};
+
 export default NewTicketForm;
