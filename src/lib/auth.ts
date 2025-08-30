@@ -5,8 +5,15 @@ import { logEvent } from '@/utils/sentry';
 const secret = new TextEncoder().encode(process.env.AUTH_SECRET);
 const cookieName = 'auth-token';
 
+// Define the auth token payload interface
+interface AuthTokenPayload {
+  userId: string;
+  email: string;
+  [key: string]: unknown;
+}
+
 // Encrypt and sign token
-export async function signAuthToken(payload: any) {
+export async function signAuthToken(payload: AuthTokenPayload) {
   try {
     const token = await new SignJWT(payload)
       .setProtectedHeader({ alg: 'HS256' })

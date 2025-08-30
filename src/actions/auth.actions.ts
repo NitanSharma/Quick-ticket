@@ -51,7 +51,7 @@ export async function registerUser(prevState : ResponseResult, formData: FormDat
     });
 
     //Sign and set auth token
-    const token = await signAuthToken({userId : user.id});
+    const token = await signAuthToken({userId : user.id, email: user.email});
     await setAuthCookie(token);
 
     logEvent('User registered successfully', 'auth' ,{ userId: user.id, email: user.email }, 'info');
@@ -137,7 +137,7 @@ export async function loginUser(
       return { success: false, message: 'Invalid email or password' };
     }
 
-    const token = await signAuthToken({ userId: user.id });
+    const token = await signAuthToken({ userId: user.id, email: user.email });
     await setAuthCookie(token);
 
     return { success: true, message: 'Login successful' };
